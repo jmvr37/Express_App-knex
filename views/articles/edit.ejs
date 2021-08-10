@@ -1,0 +1,19 @@
+<%- include('../partials/header') %>
+<% const { id, title, content } = article %>
+<h1>Edit Article</h1>
+<form action="/articles/<%= id %>" method="POST">
+  <input type="hidden" name="_method" value="PATCH">
+  <div class="mb-3">
+    <label for="title" class="form-label">Title</label>
+    <input name="title" type="text" class="form-control" id="title" value="<%= title %>">
+  </div>
+  <div class="mb-3">
+    <label for="content" class="form-label">Content</label>
+    <textarea name="content" class="form-control" id="content" rows="3">
+      <%= content %>
+    </textarea>
+  </div>
+  <button type="submit" class="btn btn-info">Edit Article</button>
+</form>
+
+<%- include('../partials/footer') %></form>

@@ -1,0 +1,24 @@
+<%- include('./partials/header') %>
+  <h1>Contact Us</h1>
+  <!-- 
+    When a form a is submitted, an HTTP request is made by the browser to a URL
+    specifified by the "action" attribute of a form. If we don't specify the 
+    "method" attribute then it will send a GET request to that URL by default.
+    We can change the default method to "POST"
+   -->
+  <form action="/thank_you">
+    <div class="mb-3">
+      <label for="name" class="form-label">Name</label>
+      <input name="name" type="text" class="form-control" id="name" placeholder="Your name">
+    </div>
+    <div class="mb-3">
+      <label for="email" class="form-label">Email</label>
+      <input name="email" type="email" class="form-control" id="email" placeholder="Your email">
+    </div>
+    <div class="mb-3">
+      <label for="message" class="form-label">Message</label>
+      <textarea name="message" class="form-control" id="message" rows="3"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Send</button>
+  </form>
+<%- include('./partials/footer') %>

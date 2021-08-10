@@ -1,0 +1,40 @@
+<%- include('./partials/header') %>
+  <h1>Survey</h1>
+  <!-- 
+    If "action" and "method" attributes are not given, the default URL is the
+    current URL and the default method is GET when submit this form
+   -->
+  <form>
+    <div>
+      <label for="name">What is your name?</label>  
+      <input type="text" id="name" name="name" required>
+    </div>
+    <div>
+      <label for="colour">What is your favourite colour?</label>  
+      <input type="text" id="colour" name="colour">
+    </div>
+    <div>
+      <label for="cat">What is your favourite cat?</label>
+      <select name="cat" id="cat">
+        <% for (const cat of cats) { %>
+          <option value="<%= cat %>"><%= cat %></option>
+        <% } %>
+      </select> 
+    </div>
+      <% cheeses.forEach(cheese => { %>
+        <div>
+          <input type="radio" id="<%= cheese %>" name="cheese" value="<%= cheese %>">
+          <label for="<%= cheese %>"><%= cheese %></label>
+        </div>
+      <% }) %>
+    <input type="submit" value="Submit">
+  </form>
+
+  <% if (name) { %> 
+    <div>
+      <p>Your favourite colour is <%= favouriteColour %></p>
+      <p>Your favourite cat is <%= favouriteCat%></p>
+      <p>Your favourite cheese is <%= favouriteCheese %></p>
+    </div>
+  <% } %>
+<%- include('./partials/footer') %>

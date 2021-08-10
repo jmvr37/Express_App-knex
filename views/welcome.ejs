@@ -1,0 +1,28 @@
+<%- include('./partials/header') %>
+  <h1>Welcome to my Express App</h1>
+  <h3>This Simple App was built using ExpressJs and Knex for database</h3>
+
+  <img 
+    src="/images/cat-on-computer.gif" 
+    alt="Cat on Computer"
+  />
+  <!--
+    EJS syntax: https://ejs.co/#docs
+
+    <%# %> -> for comments.
+
+    <% %> -> for writing JS. Use this tag for control flow like
+    conditionals, loops, etc.
+
+    <%= %> -> for JS expressions that return a value and adds it 
+    to the HTML template
+
+    <%- %> -> for adding unescaped HTML to the template, like paritals.
+    HTML strings will be treated as HTML.
+
+    For example:
+    <% const text = "<strong>This is some HTML</strong>" %>
+    <%= text %> -> <strong>This is some HTML</strong> 
+    <%- text %> -> This is some HTML
+   -->
+<%- include('./partials/footer') %>

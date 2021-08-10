@@ -1,0 +1,33 @@
+<%- include('../partials/header') %>
+  <% const { id, title, content, username, view_count, created_at } = article %>
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title"><%= title %></h5>
+      <p class="card-text"><%= content %></p>
+      <small>By <%= username %></small><br>
+      <small><%= created_at %></small>
+      <form class="mt-2" action="/articles/<%= id %>" method="POST">
+        <!-- Adds _method = "DELETE" to the body of the request -->
+        <input type="hidden" name="_method" value="DELETE">
+        <a href="/articles/<%= id %>/edit" class="btn btn-warning">Edit</a>
+        <button type="submit" class="btn btn-danger">Delete</button>
+      </form>
+      <div class="card-footer text-muted mt-2">
+        Viewed <%= view_count %> times
+      </div>
+      <form action="/articles/<%= id %>/comments" method="POST">
+        <div class="form-floating">
+          <textarea class="form-control" placeholder="Leave a comment here" id="content" name="content"></textarea>
+          <label for="content">Comments</label>
+        </div>
+        <button type="submit" class="btn btn-dark mt-2">Submit</button>
+      </form>
+    </div>
+    <ul class="list-group list-group-flush">
+      <% comments.forEach(({ content }) => { %>
+        <li class="list-group-item"><%= content %></li>
+      <% }) %> 
+    </ul>
+  </div>
+
+<%- include('../partials/footer') %>

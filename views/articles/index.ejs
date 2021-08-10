@@ -1,0 +1,16 @@
+<%- include('../partials/header') %>
+
+<div class="list-group">
+  <% articles.forEach(({ id, title, view_count, content, username }) => { %>
+    <a href="/articles/<%= id %>" class="list-group-item list-group-item-action" aria-current="true">
+      <div class="d-flex w-100 justify-content-between">
+        <h5 class="mb-1"><%= title %></h5>
+        <small>Viewed <%= view_count %> times</small>
+      </div>
+      <p class="mb-1"><%= content %></p>
+      <small>Written by <%= username %></small>
+    </a>
+  <% }) %>
+</div>
+
+<%- include('../partials/footer') %>
